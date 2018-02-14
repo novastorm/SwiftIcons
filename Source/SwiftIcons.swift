@@ -519,6 +519,9 @@ public extension UITabBarItem {
         let tabBarItemImageSize = size ?? CGSize(width: 30, height: 30)
         image = UIImage(icon: icon, size: tabBarItemImageSize, textColor: textColor, backgroundColor: backgroundColor).withRenderingMode(.alwaysOriginal)
         selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor).withRenderingMode(.alwaysOriginal)
+        
+        setTitleTextAttributes([.foregroundColor: textColor], for: .normal)
+        setTitleTextAttributes([.foregroundColor: selectedTextColor], for: .selected)
     }
     
     
