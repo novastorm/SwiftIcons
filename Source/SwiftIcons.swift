@@ -587,7 +587,7 @@ public extension UIBarButtonItem {
      
      - Since: 1.0.0
      */
-    public func setIcon(icon: FontType, iconSize: CGFloat, color: UIColor = .black) {
+    public func setIcon(icon: FontType, iconSize: CGFloat, color: UIColor? = nil) {
         
         FontLoader.loadFontIfNeeded(fontType: icon)
         let font = UIFont(name: icon.fontName(), size: iconSize)
@@ -598,7 +598,9 @@ public extension UIBarButtonItem {
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .focused)
         title = icon.text
-        tintColor = color
+        if let color = color {
+            tintColor = color
+        }
     }
     
     
